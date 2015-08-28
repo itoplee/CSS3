@@ -1,0 +1,95 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>CSS3 Phone</title>
+	<style type="text/css">
+		#phone {
+			position: relative;
+			width: 300px;
+			height: 570px;
+			margin: 60px auto;
+			background-color: #3a3a3a;
+			border: 10px solid #1a1a1a;
+			border-radius: 15px;
+			box-shadow: 2px 2px 1px rgba(0,0,0,0.5);
+		}
+		#phone:before {
+			content: '';
+			position: absolute;
+			top: -16px;
+			right: 30px;
+			width: 50px;
+			height: 6px;
+			display: block;
+			background-color: #1a1a1a;
+			border-radius: 3px 3px 0px 0px;
+		}
+		#phone:after {
+			content: '';
+			position: absolute;
+			top: 30px;
+			left: -16px;
+			width: 6px;
+			height: 50px;
+			display: block;
+			background-color: #1a1a1a;
+			border-radius: 3px 0px 0px 3px;
+		}
+		#camera {
+			width: 10px;
+			height: 10px;
+			margin: 10px auto;
+			border: 3px solid #1a1a1a;
+			border-radius: 50%;
+			box-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+		}
+		#top {
+			width: 60px;
+			height: 6px;
+			margin: 0 auto;
+			border: 3px solid #1a1a1a;
+			border-radius: 5px;
+		}
+		#screen {
+			width: 280px;
+			height: 430px;
+			line-height: 380px;
+			border: 5px solid #303030;
+			margin: 10px auto;
+			background-color: #666;
+			box-shadow: 1px 1px 1px rgba(0,0,0,0.5) inset;
+			text-align: center;
+			font-size: 30px;
+			color: #fff;
+			text-shadow: 2px 2px 2px #333;
+			font-family: "times new roman";
+		}
+		#home {
+			width: 40px;
+			height: 40px;
+			margin: 10px auto;
+			border: 5px solid #1a1a1a;
+			border-radius: 8px;
+			box-shadow: 1px 1px 1px rgba(0,0,0,0.5) inset;
+		}
+		#home:before {
+			content: '';
+			width: 20px;
+			height: 20px;
+			border: 3px solid #fff;
+			display: block;
+			margin: 6px auto;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="phone">
+		<div id="camera"></div>
+		<div id="top"></div>
+		<div id="screen">IPhone 6</div>
+		<div id="home"></div>
+	</div>
+</body>
+</html>
