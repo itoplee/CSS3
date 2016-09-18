@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">	
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Css3 loading</title>
+	<style type="text/css">
+		html, body {margin: 0; padding: 0; background-color: #0dcecb;}
+		.one {
+			width: 100px;
+			height: 100px;
+			margin: 30px auto;
+			border: 10px solid rgba(255, 255, 255, .4);
+			border-left-color: #fff;
+			border-radius: 50%;
+			animation: loading-one 1s infinite linear;
+		}
+		@keyframes loading-one {
+			from {transform: rotate(0deg);}
+			to {transform: rotate(360deg);}
+		}
+		.two {
+			width: 100px;
+			margin: 30px auto;
+			list-style: none;			
+			overflow: hidden;
+		}
+		.two li {
+			float: left;
+			width: 5px;
+			height: 30px;
+			margin-right: 5px;
+			background-color: #fff;
+			animation: loading-two 1s infinite ease-in-out;
+			transform: scaleY(0.4);
+		}
+		@keyframes loading-two {
+			0%, 40%, 100% {transform: scaleY(0.4);}
+			20% {transform: scaleY(1);}
+		}
+		.three {
+			width: 150px;
+			margin: 30px auto;
+			list-style: none;			
+			overflow: hidden;
+		}
+		.three li {
+			float: left;
+			width: 30px;
+			height: 30px;
+			margin-right: 10px;
+			background-color: #fff;
+			border-radius: 50%;
+			animation: loading-three 1.8s infinite ease-in-out;
+			transform: scale(0);
+		}
+		@keyframes loading-three {
+			0%, 100% {transform: scale(0);}
+			50% {transform: scale(1);}
+		}
+		.four {
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			margin: 30px auto;
+			box-shadow: 
+			45px 5px 0 10px rgba(255,255,255,0.4), 
+			100px 45px 0 10px rgba(255,255,255,0.4), 
+			45px 100px 0 10px rgba(255,255,255,0.4), 
+			0px 45px 0 10px rgba(255,255,255,0.4);
+			animation: loading-four 1s infinite linear;
+		}
+		@keyframes loading-four {
+			25% {box-shadow: 
+				45px 5px 0 10px rgba(255,255,255,0.4), 
+				100px 45px 0 10px rgba(255,255,255,1), 
+				45px 100px 0 10px rgba(255,255,255,0.4), 
+				0px 45px 0 10px rgba(255,255,255,0.4)}
+			50% {box-shadow: 
+				45px 5px 0 10px rgba(255,255,255,0.4), 
+				100px 45px 0 10px rgba(255,255,255,0.4), 
+				45px 100px 0 10px rgba(255,255,255,1), 
+				0px 45px 0 10px rgba(255,255,255,0.4)}
+			75% {box-shadow: 
+				45px 5px 0 10px rgba(255,255,255,0.4), 
+				100px 45px 0 10px rgba(255,255,255,0.4), 
+				45px 100px 0 10px rgba(255,255,255,0.4), 
+				0px 45px 0 10px rgba(255,255,255,1)}
+			100% {box-shadow: 
+				45px 5px 0 10px rgba(255,255,255,1), 
+				100px 45px 0 10px rgba(255,255,255,0.4), 
+				45px 100px 0 10px rgba(255,255,255,0.4), 
+				0px 45px 0 10px rgba(255,255,255,0.4)}		
+		}
+	</style>
+</head>
+<body>
+	<div class="one"></div>
+	<ul class="two">
+		<li style="animation-delay: 0.1s"></li>
+		<li style="animation-delay: 0.2s"></li>
+		<li style="animation-delay: 0.3s"></li>
+		<li style="animation-delay: 0.4s"></li>
+		<li style="animation-delay: 0.5s"></li>
+	</ul>
+	<ul class="three">
+		<li></li>
+		<li style="animation-delay: 0.2s"></li>
+		<li style="animation-delay: 0.4s"></li>
+	</ul>
+	<div class="four"></div>
+</body>
+</html>
