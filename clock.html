@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Css3时钟</title>
+    <style type="text/css">
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    
+    .circle {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        margin: 100px auto;
+        border-radius: 50%;
+        background-color: #333;
+        color: #fff;
+    }
+    .line {
+    	position: absolute;
+    	top: 50%;
+    	left: 50%;
+    	width: 0;
+    	height: 0;
+    	margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .line li {
+    	position: absolute;
+    	top: 0;
+    	left: 85px;
+    	background-color: #fff;
+    	transform-origin: -85px center;
+    }
+    
+    .line-hour li {                
+        width: 10px;
+        height: 3px;  
+    }
+
+    .line-minute li {      
+        width: 5px;
+        height: 1px;
+    }
+    
+    .line-num li {
+    	background-color: transparent;
+    	transform: translate(-50%, -50%);        
+    }
+
+    .pointer {
+    	position: absolute;
+        top: 50%;
+        left: 50%;
+        background-color: #fff;
+        transform: translate(0, -50%);
+    	transform-origin: left center;
+    }
+    
+    .center {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    .hour {
+    	width: 50px;
+    	height: 5px;
+    }
+    
+    .minute {
+    	width: 70px;
+    	height: 3px;
+    }
+    
+    .seconds {
+    	width: 90px;
+    	height: 2px;
+    }
+
+    .time {
+    	position: absolute;
+    	top: -40px;
+    	left: 0;
+    	right: 0;
+    	height: 30px;
+    	line-height: 30px;
+    	text-align: center;
+    	color: #f60;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="circle">
+        <ul class="line line-hour" id="line-hour"></ul>
+        <ul class="line line-minute" id="line-minute"></ul>
+        <ul class="line line-num" id="line-num"></ul>
+        <div class="pointer center"></div>
+        <div class="pointer hour" id="hour"></div>
+        <div class="pointer minute" id="minute"></div>
+        <div class="pointer seconds" id="seconds"></div>
+        <div class="time" id="time"></div>
+    </div>
+    <script type="text/javascript">
+    window.onload = function() {        
+        lineHour();
+        lineMinute();
+        lineNum();
+        disp();
+        setInterval(disp, 1000);
+    };
+
+    function lineHour() {
+        var html = [];
+        for (var i = 0; i < 12; i++) {
+            html.push('<li style="transform: translate(0, -50%) rotate(' + (i * 30) + 'deg);"></li>');
+        }
+        document.getElementById("line-hour").innerHTML = html.join("");
+    }
+
+    function lineMinute() {
+    	var html = [];
+        for (var i = 0; i < 60; i++) {
+            html.push('<li style="transform: translate(0, -50%) rotate(' + (i * 6) + 'deg);"></li>');
+        }
+        document.getElementById("line-minute").innerHTML = html.join("");
+    }
+
+    function lineNum() {
+    	var html = [],
+    		x = 0,
+    		y = 0;
+        for (var i = 0; i < 12; i++) {
+        	x = 70 * Math.cos((i - 2) * Math.PI / 6);
+        	y = 70 * Math.sin((i - 2) * Math.PI / 6);
+            html.push('<li style="left: ' + x + 'px; top: ' + y + 'px;">' + (i + 1) + '</li>');
+        }
+        document.getElementById("line-num").innerHTML = html.join("");
+    }
+
+    function disp() {
+    	var d = new Date()
+        	h = d.getHours(),
+        	m = d.getMinutes()
+        	s = d.getSeconds();
+    	document.getElementById("hour").style.transform = "translate(0, -50%) rotate(" + (h % 12 * 30 + m / 2 - 90) + "deg)";
+    	document.getElementById("minute").style.transform = "translate(0, -50%) rotate(" + (m * 6 + s / 10 - 90) + "deg)";
+    	document.getElementById("seconds").style.transform = "translate(0, -50%) rotate(" + (s * 6 - 90) + "deg)";
+    	document.getElementById("time").innerHTML = h + ":" + m + ":" + s;
+    }
+    </script>
+</body>
+
+</html>
