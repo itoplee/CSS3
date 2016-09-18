@@ -112,27 +112,19 @@
     </div>
     <script type="text/javascript">
     window.onload = function() {        
-        lineHour();
-        lineMinute();
+        line(12, 30, "line-hour");
+        line(60, 6, "line-minute");
         lineNum();
         disp();
         setInterval(disp, 1000);
     };
 
-    function lineHour() {
+    function line(count, deg, id) {
         var html = [];
-        for (var i = 0; i < 12; i++) {
-            html.push('<li style="transform: translate(0, -50%) rotate(' + (i * 30) + 'deg);"></li>');
+        for (var i = 0; i < count; i++) {
+            html.push('<li style="transform: translate(0, -50%) rotate(' + (i * deg) + 'deg);"></li>');
         }
-        document.getElementById("line-hour").innerHTML = html.join("");
-    }
-
-    function lineMinute() {
-    	var html = [];
-        for (var i = 0; i < 60; i++) {
-            html.push('<li style="transform: translate(0, -50%) rotate(' + (i * 6) + 'deg);"></li>');
-        }
-        document.getElementById("line-minute").innerHTML = html.join("");
+        document.getElementById(id).innerHTML = html.join("");
     }
 
     function lineNum() {
